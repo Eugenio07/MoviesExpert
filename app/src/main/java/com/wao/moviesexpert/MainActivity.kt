@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MediaItem()
                 }
             }
         }
@@ -41,9 +41,21 @@ fun MediaItem() {
             modifier = Modifier
                 .height(200.dp)
                 .fillMaxWidth()
-                .background(color = Color.Red)
         ) {
-
+            AsyncImage(
+                model = "https://loremflickr.com/400/400/cat?lock=1",
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+            Icon(
+                Icons.Default.PlayCircleOutline,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(92.dp)
+                    .align(Alignment.Center),
+                tint = Color.White
+            )
         }
         Box(
             contentAlignment = Alignment.Center,
@@ -59,18 +71,3 @@ fun MediaItem() {
         }
     }
 }
-
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-/*
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MoviesExpertTheme {
-        Greeting("Android")
-    }
-}*/
