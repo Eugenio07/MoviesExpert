@@ -1,6 +1,7 @@
-package com.wao.moviesexpert
+package com.wao.moviesexpert.ui.model
 
-import com.wao.moviesexpert.MediaItem.Type
+import com.wao.moviesexpert.ui.model.MediaItem.Type.PHOTO
+import com.wao.moviesexpert.ui.model.MediaItem.Type.VIDEO
 
 data class MediaItem(
     val id: Int,
@@ -16,6 +17,6 @@ fun getMedia() = (1..10).map {
         id = it,
         title = "Title $it",
         thumb = "https://loremflickr.com/400/400/cat?lock=$it",
-        type = if (it % 3 == 0) Type.VIDEO else Type.PHOTO
+        type = if (it % 3 == 0) VIDEO else PHOTO
     )
 }
