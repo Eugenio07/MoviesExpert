@@ -5,12 +5,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import com.wao.moviesexpert.ui.MyMoviesApp
 
 @ExperimentalFoundationApi
 @Composable
-fun MainScreen() {
-    Scaffold(topBar = { MainAppBar() })
-    { padding ->
-        MediaList(modifier = Modifier.padding(padding))
+fun MainScreen(navController: NavHostController) {
+    MyMoviesApp {
+        Scaffold(topBar = { MainAppBar() })
+        { padding ->
+            MediaList(navController, modifier = Modifier.padding(padding))
+        }
     }
 }
