@@ -12,7 +12,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import coil.compose.AsyncImage
 import com.wao.moviesexpert.R
-import com.wao.moviesexpert.ui.model.MediaItem
+import com.wao.moviesexpert.model.MediaItem
 
 @Composable
 fun Thumb(mediaItem: MediaItem, modifier: Modifier = Modifier) {

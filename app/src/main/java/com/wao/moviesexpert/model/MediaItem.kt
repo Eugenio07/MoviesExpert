@@ -1,7 +1,7 @@
-package com.wao.moviesexpert.ui.model
+package com.wao.moviesexpert.model
 
-import com.wao.moviesexpert.ui.model.MediaItem.Type.PHOTO
-import com.wao.moviesexpert.ui.model.MediaItem.Type.VIDEO
+import com.wao.moviesexpert.model.MediaItem.Type.PHOTO
+import com.wao.moviesexpert.model.MediaItem.Type.VIDEO
 
 data class MediaItem(
     val id: Int,

@@ -16,13 +16,13 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.wao.moviesexpert.R
-import com.wao.moviesexpert.ui.model.MediaItem
-import com.wao.moviesexpert.ui.model.getMedia
+import com.wao.moviesexpert.model.MediaItem
+import com.wao.moviesexpert.model.getMedia
 import com.wao.moviesexpert.ui.screens.shared.Thumb
 
 @ExperimentalFoundationApi
 @Composable
-fun MediaList(navController: NavHostController, modifier: Modifier = Modifier) {
+fun MediaList(onMediaClick: (MediaItem) -> Unit, modifier: Modifier = Modifier) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(dimensionResource(R.dimen.cell_min_width)),
         contentPadding = PaddingValues(dimensionResource(R.dimen.padding_xsmall)),
@@ -31,7 +31,7 @@ fun MediaList(navController: NavHostController, modifier: Modifier = Modifier) {
         items(getMedia()) {
             MediaListItem(
                 mediaItem = it,
-                navController,
+                onClick = {onMediaClick(it)},
                 modifier = Modifier.padding(dimensionResource(R.dimen.padding_xsmall))
             )
         }
@@ -50,12 +50,12 @@ fun MediaListItemPreview() {
 @Composable
 fun MediaListItem(
     mediaItem: MediaItem,
-    navController: NavHostController,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier
-            .clickable { navController.navigate("detail/${mediaItem.id}") }
+            .clickable(onClick = onClick)
     ) {
         Thumb(
             mediaItem = mediaItem)
