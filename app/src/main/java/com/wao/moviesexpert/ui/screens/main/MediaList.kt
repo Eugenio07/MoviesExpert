@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
 import com.wao.moviesexpert.R
 import com.wao.moviesexpert.model.MediaItem
 import com.wao.moviesexpert.model.getMedia
@@ -53,13 +53,14 @@ fun MediaListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
+    Card(
         modifier = modifier
             .clickable(onClick = onClick)
     ) {
-        Thumb(
-            mediaItem = mediaItem)
-        Title(mediaItem)
+        Column() {
+            Thumb(mediaItem = mediaItem)
+            Title(mediaItem)
+        }
     }
 }
 
